@@ -1,47 +1,38 @@
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Puzzle GoBot – Version Web</title>
-
-    <!-- Tailwind CDN (OK pour démo ; en prod, préférer un build Tailwind) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              primary: '#d13339',   // GoBot Red
+              primary: '#d13339', // GoBot Red
               secondary: '#0f2b4c', // GoBot Blue
               light: '#f8f9fa',
               dark: '#343a40',
             },
           },
         },
-      };
+      }
     </script>
-
-    <!-- React + ReactDOM UMD (production) -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-
-    <!-- Babel Standalone pour compiler le TSX/JSX dans le navigateur -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <!-- (Optionnel) ton CSS, si tu en as un. Sinon, retire cette ligne. -->
-    <!-- <link rel="stylesheet" href="./index.css"> -->
-  </head>
-  <body class="bg-white text-gray-900">
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-light">
     <div id="root"></div>
-
-    <!-- IMPORTANT : on charge ton code TSX avec Babel -->
-    <!-- Chemin RELATIF pour GitHub Pages -->
-    <script
-      type="text/babel"
-      data-type="module"
-      data-presets="typescript,react"
-      src="./index.tsx">
-    </script>
+    <script type="module" src="/main.tsx"></script>
   </body>
 </html>
